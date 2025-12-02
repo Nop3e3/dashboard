@@ -1,0 +1,48 @@
+/* --- Global Font Import (Put this in your main index.css or equivalent) --- */
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@100..900&display=swap');
+.login{
+    background: linear-gradient(180deg, #8A1E3E 0%, #971154 100%);
+height: 100vh;
+width: 100vw;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.ttl{
+    color: #FFF;
+font-family: "Lexend deca";
+font-size: 32px;
+text-align: center;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.ttlcap{color: #FFF;
+text-align: center;
+font-family: "Lexend Deca";
+font-size: 18px;
+font-style: normal;
+font-weight: 300;
+line-height: normal;}
+.logincon{
+    display: flex;
+width: 801px;
+padding: 40px 80px;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 40px;
+border-radius: 28.458px;
+border: 2.134px solid rgba(255, 255, 255, 0.08);
+
+background: rgba(255, 255, 255, 0.329);
+
+box-shadow: 0 8px 7.1px 0 rgba(48, 25, 35, 0.375);
+backdrop-filter: blur(8.893229484558105px);
+}
+.wlcmcon{
+    display: flex;
+flex-direction: column;
+align-items: center;
+gap: 8px;
+}

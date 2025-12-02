@@ -1,0 +1,30 @@
+.pinkbutton {
+  display: flex;
+  height: 48px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #FFF;
+  font-family: "Lexend Deca";
+  font-size: 16px;
+  font-weight: 400;
+  border: 0;
+  border-radius: 7.115px;
+  background: #8A1E3E;
+  cursor: pointer;
+  width: 100%;
+  
+  /* smooth animation */
+  transition: all 0.25s ease;
+}
+
+.pinkbutton:hover {
+  transform: translateY(-4px);
+
+  /* soft glow + shadow */
+  box-shadow: 
+    0 8px 15px rgba(255, 173, 199, 0.45),   /* glow */
+    0 0 12px rgba(255, 200, 220, 0.6);      /* halo effect */
+  
+  background: #9b254a;  /* slightly brighter on hover (optional) */
+}
