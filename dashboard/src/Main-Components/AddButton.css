@@ -1,0 +1,28 @@
+.add-cardd{
+
+display: flex;
+align-items: center;
+gap: 7px;
+align-self: stretch;
+border-radius: 7px;
+background: #8A1E3E;
+height: 36px;
+
+padding: 6px;
+align-items: center;
+gap: 10px;
+padding-left: 12px;
+align-self: stretch;}
+.addd-title{
+    color: rgb(254, 252, 252);
+
+
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.icona{
+    aspect-ratio: 100%; /* 1/1 */
+    width: 7%;
+}

@@ -1,10 +1,12 @@
 import React from 'react';
-import './Messages.css'; 
+import './Messages.css';
 
+import Sidebar from '../Main-Components/SideBar'; 
 const Messages = () => {
     return ( 
-    <div className='maincon'>
-ffff
+    <div className='mainconj'>
+<Sidebar/>
+<div className='mainpage'></div>
     </div> );
 }
  
