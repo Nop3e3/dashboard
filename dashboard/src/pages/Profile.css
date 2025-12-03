@@ -35,7 +35,11 @@ box-shadow: 1px 9px 26.2px 0 rgba(0, 0, 0, 0.10);
 }
 .theactualcontent{
 width: 98%;
-padding-left: 2%;
+padding-left: 1%;
+padding-right: 1%;
+display: flex;
+gap: 40px;
+flex-direction: column;
   padding-bottom: 30px;
 
 }
@@ -45,4 +49,9 @@ padding-left: 2%;
 flex-direction: column;
 align-items: flex-start;
 gap: 18px;
+}
+.roww{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
 }
