@@ -79,13 +79,14 @@ const UserForm = () => {
             <div className='mainpage1'>
                 <Pagetitle title="Profile" />
 
-                <div className='theactualcontent'>
-                    <div className='ProfileContent'>
-                        {/* Welcome section */}
-                        <div className='Welcome'>
+                <div className='theactualcontentt'>
+                              <div className='Welcome'>
                             Welcome back, Salma
                             <div className='captionn'>Tue, 07 Nov 2025</div>
                         </div>
+                        <div className='ProfileContentt'>
+                        
+              
 
                         {/* Language and Toggle Switch Controls */}
                         <div style={{ display: 'flex', gap: '20px', alignItems: 'center', marginBottom: '20px' }}>

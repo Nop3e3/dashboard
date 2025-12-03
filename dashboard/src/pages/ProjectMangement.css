@@ -1,0 +1,93 @@
+.Welcome{
+    color: #0F172B;
+font-family: "Lexend Deca";
+font-size: 32px;
+display: flex;
+width: 368px;
+flex-direction: column;
+align-items: flex-start;
+gap: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.captionn{
+    color: var(--font-color-dashboard-caption, #45556C);
+font-family: "Lexend Deca";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.mainpage1{
+       
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    border-radius: 16px;
+border: 1px solid var(--stroke-pink-Color, #F1E4E8);
+background: #FFF;
+
+box-shadow: 1px 9px 26.2px 0 rgba(0, 0, 0, 0.10);
+
+}
+.image-upload-section{
+    color: var(--main-font-color-for-dashboard, #0F172B);
+font-family: "Lexend Deca";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+flex-direction: column;
+gap: 20px;
+display: flex;
+line-height: normal;
+}
+.theactualcontent{
+width: 98%;
+padding-left: 1%;
+padding-right: 1%;
+display: flex;
+gap: 40px;
+flex-direction: column;
+  padding-bottom: 30px;
+
+}
+.ProfileContentt{
+width: 100%;
+
+display: flex;
+gap: 90px;
+flex-direction: column;
+  padding-bottom: 30px;
+}
+.roww{
+    display: flex;
+    flex-direction: row;
+    gap: 2%;
+}
+.input-title{
+        color: var(--main-font-color-for-dashboard, #0F172B);
+font-family: "Lexend Deca";
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+flex-direction: column;
+gap: 20px;
+display: flex;
+line-height: normal;
+}
+.ttlcon{
+    background: #FFF;
+
+box-shadow: 0 11px 14.1px 0 rgba(0, 0, 0, 0.05);
+
+
+
+}
+.collu{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+}

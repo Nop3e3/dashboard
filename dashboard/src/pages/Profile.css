@@ -33,7 +33,7 @@ background: #FFF;
 box-shadow: 1px 9px 26.2px 0 rgba(0, 0, 0, 0.10);
 
 }
-.theactualcontent{
+.theactualcontentt{
 width: 98%;
 padding-left: 1%;
 padding-right: 1%;
@@ -43,12 +43,13 @@ flex-direction: column;
   padding-bottom: 30px;
 
 }
-.ProfileConten{
-    display: flex;
+.ProfileContentt{
+width: 100%;
 
+display: flex;
+gap: 90px;
 flex-direction: column;
-align-items: flex-start;
-gap: 18px;
+  padding-bottom: 30px;
 }
 .roww{
     display: flex;
