@@ -1,0 +1,14 @@
+.MessagesBar{
+display: flex;
+width: 40%;
+height: fit-content;
+padding: 15px 11px;
+flex-direction: column;
+justify-content: space-between;
+align-items: flex-start;
+align-self: stretch;
+gap: 20px;
+border-radius: 14px;
+background: #FFF;
+box-shadow: 0 8px 9.6px 0 rgba(0, 0, 0, 0.11);
+}

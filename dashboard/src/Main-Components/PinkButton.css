@@ -13,7 +13,7 @@
   background: #8A1E3E;
   cursor: pointer;
   width: 100%;
-  
+  font-family: lexend deca;
   /* smooth animation */
   transition: all 0.25s ease;
 }

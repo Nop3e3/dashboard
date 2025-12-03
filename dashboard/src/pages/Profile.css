@@ -1,0 +1,48 @@
+.Welcome{
+    color: #0F172B;
+font-family: "Lexend Deca";
+font-size: 32px;
+display: flex;
+width: 368px;
+flex-direction: column;
+align-items: flex-start;
+gap: 18px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.captionn{
+    color: var(--font-color-dashboard-caption, #45556C);
+font-family: "Lexend Deca";
+font-size: 16px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+.mainpage1{
+       
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+    border-radius: 16px;
+border: 1px solid var(--stroke-pink-Color, #F1E4E8);
+background: #FFF;
+
+box-shadow: 1px 9px 26.2px 0 rgba(0, 0, 0, 0.10);
+
+}
+.theactualcontent{
+width: 98%;
+padding-left: 2%;
+  padding-bottom: 30px;
+
+}
+.ProfileConten{
+    display: flex;
+
+flex-direction: column;
+align-items: flex-start;
+gap: 18px;
+}

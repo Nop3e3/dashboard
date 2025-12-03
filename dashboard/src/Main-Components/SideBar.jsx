@@ -1,51 +1,58 @@
+// src/components/Sidebar.jsx
 import React from 'react';
+import { useLocation } from 'react-router-dom';
 import './Sidebar.css';
-import MenuButton from '../Main-Components/MenuButton';
-import Projectmanagement from '../Assets/assignment.svg';
-import PickedButton from'../Main-Components/PickedButton';
-import settings from '../Assets/settings.svg';
-import profileicon from '../Assets/Profile icon.svg';
-import messagesicon from '../Assets/Messages icon colored.svg';
-import dasboardicon from '../Assets/dashboard-icon.svg';
-import AddButton from '../Main-Components/AddButton'
-import plusicon from '../Assets/add.svg'
+import MenuButton from './MenuButton';
+import AddButton from './AddButton';
+
+
+import DashboardIcon  from '../Assets/dashboard-icon.svg';
+import ProfileIcon  from '../Assets/account_circle.svg';
+import MessagesIcon  from '../Assets/message.svg';
+import SettingsIcon  from '../Assets/settings.svg';
+import ProjectManagementIcon  from '../Assets/assignmenticon.svg';
+import PlusIcon  from '../Assets/add.svg';
+
 const Sidebar = () => {
-    return ( 
-   
-<nav className='nav'>
-<AddButton
- icon={plusicon}
-  title="Add Project"/>
-<MenuButton
-  icon={dasboardicon}
-  title="Dashboard"
-  to="/home"
-/>
-<MenuButton
-  icon={profileicon}
-  title="Project Mangement"
-  to="/profile"
-/>
-<MenuButton
-  icon={Projectmanagement}
-  title="Profile"
-  to="/profile"
-/>  
-  <PickedButton
-  icon={messagesicon}
-  title="Messages"
+  const location = useLocation(); // get current path
 
-/>
-<MenuButton
-  icon={settings}
-  title="Settings"
+  return (
+    <nav className='nav'>
+      <AddButton icon={PlusIcon} title="Add Project" />
 
-/>
+      <MenuButton
+        icon={DashboardIcon}
+        title="Dashboard"
+        to="/home"
+        picked={location.pathname === '/home'}
+      />
+      <MenuButton
+      
+          icon={ProjectManagementIcon}
+        title="Project Management"
+        to="/projectmangement"
+        picked={location.pathname === '/projectmangement'}
+      />
+      <MenuButton
+        icon={ProfileIcon}
+        title="Profile"
+        to="/profile"
+        picked={location.pathname === '/profile'}
+      />
+      <MenuButton
+        icon={MessagesIcon}
+        title="Messages"
+        to="/messages"
+        picked={location.pathname === '/messages'}
+      />
+      <MenuButton
+        icon={SettingsIcon}
+        title="Settings"
+     
+      
+      />
+    </nav>
+  );
+};
 
-
-</nav>
-
-   );
-}
- 
 export default Sidebar;

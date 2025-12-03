@@ -1,26 +1,43 @@
-.dashboard-card{
-display: flex;
-height: 36px;
-padding: 6px;
-align-items: center;
-gap: 10px;
-
-color: rgba(30, 30, 30, 0.59);
-
-
-font-size: 16px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-border-radius: 7px;
-padding-left: 12px;
-align-self: stretch;}
-.dashboard-title{
-    color: rgba(30, 30, 30, 0.59);
-
-
-font-size: 16px;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+.dashboard-card {
+  display: flex;
+  height: 36px;
+  padding: 6px ;
+  align-items: center;
+  gap: 10px;
+  padding-right: 0px;
+  width: 100%;
+  color: rgba(30, 30, 30, 0.59);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: normal;
+  border-radius: 7px;
+  background: transparent;
 }
+
+.dashboard-card.picked {
+  background: rgba(219, 92, 130, 0.15);
+}
+
+.dashboard-title {
+  font-weight: 500;
+  font-size: 16px;
+  color: rgba(30, 30, 30, 0.59);
+}
+
+.dashboard-card.picked .dashboard-title {
+  color: #8A1E3E;
+  opacity: 100%;
+}
+
+/* Icon styling */
+.dashboard-icon {
+  width: 24px; /* adjust as needed */
+  height: 24px;
+  transition: filter 0.3s;
+}
+
+/* Change icon color when picked */
+.picked-icon {
+  filter: invert(18%) sepia(92%) saturate(5000%) hue-rotate(320deg) brightness(50%) contrast(85%);
+}
+

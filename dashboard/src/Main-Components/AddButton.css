@@ -12,11 +12,12 @@ padding: 6px;
 align-items: center;
 gap: 10px;
 padding-left: 12px;
+font-family: lexend deca;
 align-self: stretch;}
 .addd-title{
     color: rgb(254, 252, 252);
 
-
+font-family: lexend deca;
 font-size: 16px;
 font-style: normal;
 font-weight: 500;

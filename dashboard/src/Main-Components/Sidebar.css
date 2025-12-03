@@ -1,9 +1,16 @@
 .nav{
     display: flex;
-width: 222px;
+width: 252px;
+
+  position: sticky;
+  top: 0;      /* or any offset you want */
+  background: white;
+  z-index: 10;
+
 
 padding: 19px 15px;
 flex-direction: column;
+height: 100vh;
 align-items: flex-start;
 gap: 26px;
 border-right: 2px solid #EBECF2;

@@ -1,0 +1,33 @@
+.Number{
+    color: #1E1E1E;
+
+font-family: "Lexend Deca";
+font-size: 24px;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+letter-spacing: 1px;
+margin: 0px;
+}
+.Category{
+    color: #1E1E1E;
+margin: 0px;
+font-family: "Lexend Deca";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+}
+.Message-rates{display: flex;
+padding: 15px 12px;
+align-items: flex-start;
+gap: 5px;
+flex-direction: column;
+
+border-radius: 13px;
+border: 0 solid #979797;
+
+background: #FFF;
+width: 100%;
+/* pfp shadow */
+box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.25);}
