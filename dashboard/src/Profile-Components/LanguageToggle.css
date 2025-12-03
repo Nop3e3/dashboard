@@ -1,0 +1,56 @@
+/* ----------------------------------------------------------------
+   Switch Toggle Styles
+   ---------------------------------------------------------------- */
+
+/* --- Core Switch Styles --- */
+
+.switch-toggle {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  /* Dimensions for the pill shape */
+  width: 70px; 
+  height: 36px;
+  margin-top: 30px;
+  padding: 0;
+  cursor: pointer;
+  overflow: hidden; 
+  border-radius: 18px; /* Half of height for pill shape */
+  align-items: center;
+  transition: background-color 0.3s ease;
+  
+  /* Inactive State Background (Light Pink/Beige) */
+  background-color: #f0e6e8; 
+}
+
+/* --- Sliding Handle (Thumb) --- */
+
+.switch-thumb {
+  position: absolute;
+  /* Sizing slightly smaller than height to allow visual margin */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  
+  /* White color for the thumb */
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  
+  /* Initial position (left side for inactive state: 3px margin) */
+  transform: translateX(3px); 
+  transition: transform 0.3s ease;
+}
+
+/* --- Active State Styles --- */
+
+.switch-toggle.active {
+  /* Active State Background (Dark Maroon/Pink) */
+  background-color: #8c2b4c; 
+}
+
+.switch-toggle.active .switch-thumb {
+  /* Move the thumb to the right side: 
+     70px total width - 30px thumb width - 3px left margin = 37px */
+  transform: translateX(37px); 
+}

@@ -1,0 +1,58 @@
+.input-title {  /* new class for label/title */
+  color: #45556C;
+  font-family: "Lexend Deca";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: normal;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.text-area-input {
+  margin-bottom: 15px;
+  width: 100%;
+  font-family:Lexend deca;
+  
+}
+
+.toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  display: flex;
+padding: 16px;
+align-items: flex-start;
+align-self: stretch;
+
+background: var(--White, #FFF);
+  gap: 5px;
+    border:2px #62748E ;
+  margin-bottom: 5px;
+}
+
+.toolbar button {
+  padding: 3px 8px;
+  cursor: pointer;
+border: 0px;
+background-color: #FFF;
+    font-family: "Lexend Deca";
+  font-size: 20px;
+  
+}
+
+.editor {
+  border: 1px solid #ccc;
+  min-height: 150px;
+  padding: 8px;
+  border-radius: 4px;
+  outline: none;
+  
+  background: #F8FAFC;
+  color: #62748E;
+  font-family: "Lexend Deca";
+  font-size: 16px;
+}
+
+.editor:empty:before {
+  content: attr(placeholder);
+  color: #888;
+}

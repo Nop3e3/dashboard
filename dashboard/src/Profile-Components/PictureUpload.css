@@ -1,0 +1,80 @@
+/*
+  Font Import (You might need this in your global CSS file or public HTML)
+  @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca:wght@400;700&display=swap');
+*/
+
+.image-input-container {
+  /* Mimics the overall bounding box */
+  display: flex;
+  align-items: center;
+  width: 98%; /* Or set a specific width */
+
+  border: 1px solid #c0c0c0; /* Light border around the whole component */
+  border-radius: 2px;
+  padding-top: 10px;
+    padding-bottom: 10px;
+  padding-right: 0px;
+  padding-left: 1%;
+  padding-right: 0.5%;
+  cursor: pointer; /* Indicates it's clickable */
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Optional subtle shadow */
+  background-color: #fff;
+  border-radius: 4px;
+background: #FFF;
+
+/* shadowww */
+box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.10), 0 1px 2px -1px rgba(0, 0, 0, 0.10);
+}
+
+.add-icon-box {
+  /* The dark grey square on the left */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #5b6875; /* Dark grey color */
+  border-radius: 4px;
+  margin-right: 15px;
+  position: relative; /* For positioning the plus sign */
+}
+
+/* Styling for the simple '+' icon */
+.plus-horizontal,
+.plus-vertical {
+  background-color: #fff; /* White color for the plus sign */
+  position: absolute;
+}
+
+.plus-horizontal {
+  width: 60%;
+  height: 3px;
+}
+
+.plus-vertical {
+  width: 3px;
+  height: 60%;
+}
+
+.input-area {
+  /* Area for the text and the line */
+  flex-grow: 1;
+}
+
+.add-image-text {
+  /* Style for "Add Image" text */
+  font-family: 'Lexend Deca', sans-serif;
+  font-size: 16px;
+  color: #5b6875; /* Similar dark grey as the icon box */
+  font-weight: 400;
+  display: block; /* Makes it take up its own line */
+  margin-bottom: 5px; /* Space between text and line */
+}
+
+.input-line {
+  /* The thick blue-grey line */
+  height: 4px;
+  width: 100%;
+  background-color: #5b6875; /* The prominent line color */
+  border-radius: 2px;
+}
