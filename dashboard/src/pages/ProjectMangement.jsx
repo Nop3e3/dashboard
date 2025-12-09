@@ -57,11 +57,11 @@ const ArticleForm = () => {
     // Labels for the fields shown in the image (assuming English only for new fields)
     const labels = {
         en: {
-            mainImage: 'Main Image', title: 'Post Title', category: 'Post Category', brief: 'Post Brief',
+            mainImage: 'Main Image', title: 'Project Title', category: 'Project Category', brief: 'Project Brief',
             mainBody: 'Write your post...', mainCardImage: 'Main Card Image', mobileImage: 'Mobile Image',
             otherImage: 'Other Image',
             placeholder: {
-                title: 'Enter your post title', brief: 'Enter a short summary', category: 'Select Category',
+                title: 'Enter your poject title', brief: 'Enter a short summary', category: 'Select Category',
             },
         },
         ar: {
@@ -99,7 +99,7 @@ const ArticleForm = () => {
         <div className='mainconj'>
             <Sidebar />
             <div className='mainpage1'>
-             <div  className='ttlcon'>   <Pagetitle title="Article" /> 
+             <div  className='ttlcon'>   <Pagetitle title="Projetc Mangement" /> 
 </div>
                 <div className='theactualcontent'>
                     <div className='ProfileContent'>
@@ -156,7 +156,7 @@ const ArticleForm = () => {
                             </div>
                             
                             {/* 4. Post Brief (Simple Text Input) */}
-                            <TextInputField
+                            <TextAreaInput 
                                 label={`* ${currentLabels.brief}`}
                                 placeholder={currentLabels.placeholder.brief}
                                 value={formData.brief}
@@ -164,9 +164,9 @@ const ArticleForm = () => {
                                 fullWidth={true}
                             />
 
-                            {/* 5. Rich Text Editor (Main Body) - Uses TextAreaInput */}
-                            <div className='main-body-label'>* {currentLabels.mainBody}</div>
+                 
                             <TextAreaInput 
+                             label={`* ${currentLabels.mainBody}`}
                                 placeholder="Start typing your article here..."
                                 value={formData.mainBody}
                                 onChange={handleChange('mainBody')}
@@ -195,19 +195,26 @@ const ArticleForm = () => {
                                     fullWidth={true}
                                 />
                           
+                                <TextInputField
+                                  label="Meta Description"
+                                    placeholder="Enter E.g., Explore essential UI/UX design tips to create ..."
+                                    value={formData.keywords} 
+                                    onChange={handleChange('keywords')}
+                                    fullWidth={true}
+                                />
 
                             {/* 9. Dates (Mock up of the final section) */}
                             <div className='date-fields' style={{ display: 'flex', gap: '20px', marginTop: '20px'}}>
                                 <TextInputField
-                                    label="Date"
-                                    placeholder="DD/MM/YYYY"
+                                    label="Slug Name"
+                                    placeholder="E.g., ui-ux-design-tips"
                                     value={formData.date}
                                     onChange={handleChange('date')}
                                     halfWidth={true}
                                 />
                                 <TextInputField
-                                    label="Time"
-                                    placeholder="HH:MM AM/PM"
+                                    label="Title Tag"
+                                    placeholder="E.g., Top UI/UX Design Tips for Engaging Digital Experiences"
                                     value={formData.time}
                                     onChange={handleChange('time')}
                                     halfWidth={true}

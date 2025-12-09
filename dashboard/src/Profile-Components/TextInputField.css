@@ -5,11 +5,11 @@
 
 /* Color Palette based on the images (Approximation) */
 :root {
-  --color-dark-bg: #0d0d19;      /* Background color of the whole section */
+  --color-dark-bg:  #45556C;    /* Background color of the whole section */
   --color-label-text: #a0a0a0;   /* Label text color (e.g., Skills) */
   --color-input-field: #ffffff;  /* White background of the input area */
   --color-placeholder: #5c6875;  /* Placeholder text color (E.g., UX Research) */
-  --color-icon: #1a1a2e;         /* Dark color of the small circle icon */
+  --color-icon:  #45556C;         /* Dark color of the small circle icon */
 }
 
 /* --- Container and Layout Styles --- */
