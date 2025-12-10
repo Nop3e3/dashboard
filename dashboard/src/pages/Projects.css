@@ -1,0 +1,202 @@
+/* Container Layout */
+.nav-container {
+  display: flex;
+width: 98%;
+padding-left: 1%;
+padding-bottom: 20px;
+padding-right: 1%;
+padding-top: 20px;
+  align-items: stretch;
+  margin-top: -30px;
+  background-color: #fff;
+  justify-content: space-between;
+  border-bottom: 1px solid #f0f0f0;
+  font-family: "lexend deca";
+}
+.stuff{
+    display: flex;
+    flex-direction: row;
+}
+
+/* Button Styling */
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  font-weight: 300;
+  color: #586380; /* Grey-blue for inactive */
+  cursor: pointer;
+  padding-bottom: 15px; /* Space for the underline */
+  position: relative;
+}
+
+/* Hover effect (optional for static, but nice to have) */
+.nav-btn:hover {
+  color: #9b2c48;
+}
+
+/* Active State Styling */
+.nav-btn.active {
+  color: #9b2c48; /* Deep Maroon color */
+  font-weight: 400; /* Extra Bold */
+}
+
+/* The Red Underline */
+.nav-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background-color: #9b2c48;
+  border-radius: 4px 4px 0 0;
+}
+
+/* Toolbar.css */
+
+.toolbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ width: 94%;
+  background-color: white;
+  font-family: lexend deca;
+padding-left: 2%;
+justify-self: center;
+padding-right: 2%;
+padding-top: 16px;
+padding-bottom: 16px;
+  border-bottom: 1px solid #f0f0f0;
+  border-radius: 40px;
+}
+
+.left-section,
+.right-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Button Resets */
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Space between image and text */
+  font-size: 14px;
+  font-weight: 500;
+    font-family: lexend deca;
+  transition: opacity 0.2s;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+/* Icon Image Styling */
+.icon {
+  width: 16px;
+  height: 16px;
+  object-fit: contain; /* Keeps icon aspect ratio */
+  display: block;
+}
+
+/* 1. Active "List View" Button */
+.btn-pill.active {
+  background-color: #0f172a; /* Dark Navy */
+  color: white;
+  padding: 8px 16px;
+    font-family: lexend deca;
+  border-radius: 999px;
+}
+
+/* 2. "Table" Button */
+.btn-ghost {
+  color: #4b5563; /* Slate Gray */
+  padding: 8px 8px;
+}
+
+/* 3. "New Project" Button */
+.btn-primary {
+  background-color: #881f3b; /* Deep Burgundy */
+  color: white;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+/* 4. Text Buttons (Sort & Filter) */
+.btn-text {
+  color: #111827; /* Dark Gray */
+  font-weight: 400;
+    font-family: lexend deca;
+}
+.page{
+    display: flex;
+    align-items: center;
+}
+
+
+
+
+.pagination-container {
+  font-family: 'Lexend Deca', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 600px; /* Adjust width as needed */
+  height: 60px;
+  background-color: #FFFFFF;
+  border-radius: 30px;
+  padding: 0 16px;
+
+  margin-bottom: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.pagination-arrow {
+  background: none;
+  border: none;
+  color: #B0B0B0; /* Light gray for arrows */
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 8px;
+}
+
+.pagination-numbers {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.page-number {
+  background: none;
+  border: none;
+  font-family: inherit;
+  font-size: 18px;
+  color: #666666; /* Gray text */
+  cursor: pointer;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+/* Active state for the current page (Page 1) */
+.page-number.active {
+  background-color: #8A2B42; /* Deep Burgundy */
+  color: white;
+}
+
+/* Hover effect for non-active numbers */
+.page-number:not(.active):hover {
+  background-color: #f0f0f0;
+}

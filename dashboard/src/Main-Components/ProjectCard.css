@@ -1,0 +1,140 @@
+/* ProjectCard.css */
+
+.card-wrapper-bg {
+  display: flex;
+  justify-content: center;
+  padding: 40px;
+
+  font-family: lexend deca;
+}
+
+.project-card {
+  background-color: #ffffff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+align-items: flex-start;
+ width: 98%;
+  border-radius: 24px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+
+  width: 100%;
+  align-items: flex-start;
+  font-family: lexend deca;
+  margin-bottom: 16px;
+}
+
+.tags-containerr {
+  display: flex;
+  gap: 10px;
+width: fit-content;
+  flex-direction: row;
+}
+.rowwa{
+      display: flex;
+align-items: stretch;
+justify-content: space-between;
+
+  flex-direction: row;
+}
+.rowwas{
+      display: flex;
+
+  width: 100%;
+  flex-direction: row;
+}
+.tag {
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+ width: 100px;
+  font-weight: 600;
+  color: #333;
+}
+
+/* Tag Colors */
+.tag-design {
+    
+
+  background-color: #EEE7CE; /* Beige/Yellow */
+}
+
+.tag-research {
+  background-color: #EED2D2; /* Pinkish */
+}
+
+.menu-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.card-title {
+  font-size: 20px;
+  font-weight: 400;
+  color: #111;
+  width: 100%;
+  margin: 0 0 20px 0;
+}
+
+.banner-image-wrapper {
+  width: 100%;
+  height: 240px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-color: #f0f0f0;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.card-footer {
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+}
+
+.view-count-wrapper {
+  display: flex;
+  align-items: center;
+  color: #757575;
+}
+
+.count-text {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Icons */
+.icon-img {
+  display: block;
+  object-fit: contain;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  opacity: 0.6;
+}
+
+.eye-icon {
+  width: 18px;
+  height: 18px;
+  margin-right: 6px;
+  opacity: 0.7;
+}
