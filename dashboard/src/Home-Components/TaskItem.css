@@ -1,0 +1,66 @@
+/* Container */
+.task-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 12px 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  max-width: 400px;
+}
+
+/* 1. Circle Indicator */
+.circle-indicator {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #94a3b8;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 3px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.circle-indicator:hover {
+  border-color: #0f172a;
+  background-color: #f1f5f9;
+}
+
+/* 2. Content */
+.task-content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.task-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0f172a;
+}
+
+/* 3. Badge */
+.time-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px; /* Slightly more gap for images */
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  width: fit-content;
+}
+
+/* Styles specifically for the Image Icon */
+.badge-icon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain; /* Ensures image doesn't stretch weirdly */
+  opacity: 0.8;
+  display: block;
+}
+
+/* --- Color Variants --- */
+.time-badge.green { background-color: #cbf5ee; color: #115e59; }
+.time-badge.pink  { background-color: #f0d5d5; color: #9f1239; }
+.time-badge.beige { background-color: #efe8d0; color: #854d0e; }

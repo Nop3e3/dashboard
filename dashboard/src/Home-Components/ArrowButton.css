@@ -1,0 +1,41 @@
+.view-all-btn {
+display: flex;
+height: 42px;
+padding: 12px;
+justify-content: space-between;
+align-items: center;
+align-self: stretch;
+width: 100%;
+color: var(--main-font-color-for-dashboard, #0F172B);
+font-family: "Lexend Deca";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 128.571% */
+border: 0px;
+border-radius: 19px;
+background: #EBEBEB;
+}
+
+.view-all-btn:hover {
+  background-color: #fedbe9;
+  transform: translateY(-2px);
+}
+
+.btn-text {
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* Wrapper ensures the hover animation works on ANY icon prop */
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+/* Move the wrapper (and the icon inside it) on hover */
+.view-all-btn:hover .icon-wrapper {
+  transform: translateX(4px);
+}

@@ -1,0 +1,45 @@
+.rowstats{
+    display: flex;
+
+align-items: center;
+gap: 1%;
+width: 98%;
+padding-left: 1%;
+padding-right: 1%;
+justify-content: center;
+align-self: stretch;
+}
+.rowww22{
+    display: flex;
+justify-content: space-between;
+align-items: flex-start;
+align-self: stretch;
+width: 98%;
+padding-left: 1%;
+gap: 1%;
+padding-right: 1%;
+}
+.colly{
+    display: flex;
+padding-bottom: 12px;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+width: 100%;
+
+border-bottom: 1px solid var(--dashboard-stroke, #E2E8F0);
+
+
+}
+.collycon{
+    display: flex;
+padding: 15px 11px;
+flex-direction: column;
+align-items: center;
+gap: 16px;
+width: 100%;
+border-radius: 14px;
+background: #FFF;
+justify-content: center;
+box-shadow: 0 8px 9.6px 0 rgba(0, 0, 0, 0.11);
+}

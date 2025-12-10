@@ -23,7 +23,9 @@ const Login = () => {
    image={Eye}
 />
 <PinkButton
- content={<p>Password</p>}/>
+ content={<p>Login</p>}
+     to="/home"
+ />
 </div>
 
 

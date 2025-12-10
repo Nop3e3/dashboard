@@ -1,0 +1,106 @@
+/* Container */
+.project-card {
+  display: flex;
+  align-items: center;
+  background: white;
+  padding-top: 16px;
+  padding-left: 4%;
+  padding-right: 4%;
+  padding-bottom: 16px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+width: 92%;
+  gap: 5%;
+  transition: transform 0.2s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Left: Rank Box */
+.rank-box {
+  width: 70px;
+  height: 70px;
+  background-color: #d1f2eb; /* Light Teal background */
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.rank-number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #00bfa5; /* Teal text */
+}
+
+/* Middle: Content */
+.card-content {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-titleee {
+color: #0F172B;
+font-family: "lexend deca";
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+}
+
+/* Tags */
+.tags-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tag {
+  font-size: 13px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-weight: 500;
+  color: #1a1b25;
+}
+
+/* Tag Color Variants */
+.tag.yellow {
+ background: #ECE3B6;/* Beige/Yellow from image */
+}
+
+.tag.pink {
+background: #EFD1D1; /* Pink from image */
+}
+
+/* Right: Score */
+.card-score {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1b25;
+  font-family: lexend deca;
+  align-self: flex-start; /* Aligns number to top, remove if you want center */
+  padding-top: 4px;       /* Fine tune alignment with title */
+}
+/* Left: Rank Box */
+.rank-box {
+  width: 70px;
+  height: 70px;
+  /* background-color: #d1f2eb;  <-- REMOVE OR IGNORE THIS */
+  border-radius: 8px;
+  /* ... rest of styles ... */
+}
+
+.rank-number {
+  font-size: 32px;
+  font-weight: 700;
+   font-family: lexend deca;
+  /* color: #00bfa5;  <-- REMOVE OR IGNORE THIS */
+}

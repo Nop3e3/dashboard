@@ -4,7 +4,9 @@
     "@ckeditor/ckeditor5-react": "^11.0.0",
     "@mantine/core": "^5.10.5",
     "@mantine/rte": "^5.10.5",
+    "lucide-react": "^0.556.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "recharts": "^2.12.0"
   }
 }
