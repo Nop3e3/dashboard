@@ -61,6 +61,6 @@
 }
 
 /* --- Color Variants --- */
-.time-badge.green { background-color: #cbf5ee; color: #115e59; }
-.time-badge.pink  { background-color: #f0d5d5; color: #9f1239; }
-.time-badge.beige { background-color: #efe8d0; color: #854d0e; }
+.time-badge.green { background-color: #cbf5ee; color: #0F172B; }
+.time-badge.pink  { background-color: #f0d5d5; color: #0F172B; }
+.time-badge.beige { background-color: #efe8d0; color: #0F172B; }

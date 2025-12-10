@@ -36,10 +36,25 @@ border-bottom: 1px solid var(--dashboard-stroke, #E2E8F0);
 padding: 15px 11px;
 flex-direction: column;
 align-items: center;
+margin-bottom: 40px;
 gap: 16px;
 width: 100%;
 border-radius: 14px;
 background: #FFF;
 justify-content: center;
 box-shadow: 0 8px 9.6px 0 rgba(0, 0, 0, 0.11);
+}
+.collycon2{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+gap: 16px;
+width: 100%;
+border-radius: 14px;
+background: #FFF;
+
+padding: 15px 11px;
+
+box-shadow: 0 8px 9.6px 0 rgba(0, 0, 0, 0.11);
+    
 }

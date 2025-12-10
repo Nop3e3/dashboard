@@ -30,8 +30,8 @@ const Sidebar = () => {
       
           icon={ProjectManagementIcon}
         title="Project Management"
-        to="/projectmangement"
-        picked={location.pathname === '/projectmangement'}
+        to="/projects"
+        picked={location.pathname === '/projects'}
       />
       <MenuButton
         icon={ProfileIcon}

@@ -11,7 +11,7 @@ import newmessagesicon from '../Assets/new messages.svg';
 import totalvisitors from '../Assets/total visitors.svg';
 import ArrowButton from '../Home-Components/ArrowButton'
 import TrafficAnalytics from "../Home-Components/TrafficAnalytics";
-
+import TaskItem from '../Home-Components/TaskItem';
 import Titlemini from '../Home-Components/Titlemini'
 import Pfp1 from '../Assets/Frame 1000007593-1.png'
 import Pfp2 from '../Assets/Frame 1000007593-2.png'
@@ -19,6 +19,7 @@ import Pfp3 from '../Assets/Frame 1000007593.png'
 import Pfp6 from '../Assets/Frame 1000007594.png'
 import Pfp5 from '../Assets/Frame 1000007593-3.png'
 import Pfp4 from '../Assets/Frame 1000007594-1.png'
+import QuickActions from '../Home-Components/QuickActions';
 import MessageCard from'../Messages-Components/MessageCard';
 const Home = () => {
 
@@ -77,7 +78,57 @@ const Home = () => {
 
         {/* Traffic Analytics Chart */}
         <div className='rowww22'>
+            <div className='collycon'>
           <TrafficAnalytics data={data} />
+
+<div className='rowww22'>      
+    <div className='collycon2'>
+             <Titlemini
+              title="Tasks"
+            />
+         <TaskItem 
+        title="Publish the new web" 
+        time="In 5 Days" 
+        color="green" 
+        
+      />
+         <TaskItem 
+        title="Branding" 
+        time="In 2 hours" 
+        color="pink" 
+        
+      />
+          <TaskItem 
+        title="Branding 2" 
+        time="In 2 days" 
+        color="beige" 
+        
+      />
+          </div>
+
+           <div className='collycon2'>
+             <Titlemini
+              title="Quick Actions"
+            />
+  <QuickActions
+  text="Add New Project"
+  />
+    <QuickActions
+  text="Add New Category"
+  />
+    <QuickActions
+  text="Add New Skill"
+  />
+    <QuickActions
+  text="Add New Contact Info"
+  />
+   <QuickActions
+  text="Edit Brief 1"
+  />
+
+          </div>
+          </div>    
+          </div>
           <div className='collycon'>
           <div className='colly'>
 

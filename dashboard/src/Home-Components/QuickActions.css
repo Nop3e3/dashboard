@@ -1,0 +1,16 @@
+.qactionbutton{
+    display: flex;
+flex-direction: row;
+align-items: center;
+gap: 11px;
+align-self: stretch;
+color: var(--main-font-color-for-dashboard, #0F172B);
+font-family: "Lexend Deca";
+font-size: 14px;
+font-style: normal;
+font-weight: 500;
+line-height: 18px; /* 128.571% */
+width: 100%;
+border-bottom: 1px solid var(--dashboard-stroke, #E2E8F0);
+
+}

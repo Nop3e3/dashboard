@@ -1,6 +1,6 @@
 import React from 'react';
 import './TaskItem.css';
-
+import clock from '../Assets/alarm.svg'
 const TaskItem = ({ title, time, color, icon }) => {
   return (
     <div className="task-item">
@@ -14,7 +14,7 @@ const TaskItem = ({ title, time, color, icon }) => {
         {/* 3. Badge */}
         <div className={`time-badge ${color}`}>
           {/* Render the imported image */}
-          <img src={icon} alt="clock" className="badge-icon" />
+          <img src={clock} alt="clock" className="badge-icon" />
           
           <span className="time-text">{time}</span>
         </div>
