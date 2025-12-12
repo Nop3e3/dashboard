@@ -74,7 +74,6 @@ const ArticleForm = () => {
         },
     };
     
-    // Helper to render image upload fields
     const renderImageUpload = (field, label) => (
         <div key={field} className='image-upload-section' style={{ marginBottom: '20px' }}>
              <label className="input-title">{label}</label>
@@ -104,7 +103,7 @@ const ArticleForm = () => {
                 <div className='theactualcontent'>
                     <div className='ProfileContent'>
                         
-                        {/* 🌟 LANGUAGE TOGGLE POSITIONED HERE 🌟 */}
+                    
                         <div style={{ 
                             display: 'flex', 
                             justifyContent: 'flex-start', 
@@ -121,14 +120,14 @@ const ArticleForm = () => {
                                 />
                             </div>
                         </div>
-                        {/* 🌟 END LANGUAGE TOGGLE 🌟 */}
+                    
                         
                         
-                        {/* 1. Main Image Upload (Top of the Form) */}
+                       
                         {renderImageUpload('mainImage', currentLabels.mainImage)}
 
                         <div className="form-fields">
-                            {/* 2. Post Title (Simple Text Input) */}
+                         
                             <TextInputField
                                 label={`* ${currentLabels.title}`}
                                 placeholder={currentLabels.placeholder.title}
@@ -137,7 +136,7 @@ const ArticleForm = () => {
                                 fullWidth={true} 
                             />
 
-                            {/* 3. Post Category (Mock Dropdown) */}
+               
                             <div className='text-input-field-container full-width'>
                                 <label className="input-label">* {currentLabels.category}</label>
                                 <div className="input-wrapper">
@@ -172,19 +171,18 @@ const ArticleForm = () => {
                                 onChange={handleChange('mainBody')}
                             />
                             
-                            {/* Short line separator from the image */}
                             <hr style={{margin: '30px 0', border: 'none', borderTop: '1px solid #eee'}}/>
                             
-                            {/* 6. Main Card Image Upload */}
+                      
                             {renderImageUpload('mainCardImage', currentLabels.mainCardImage)}
                             
-                            {/* 7. Mobile Image Upload */}
+                      
                             {renderImageUpload('mobileImage', currentLabels.mobileImage)}
                             
-                            {/* 8. Other Image Upload */}
+                          
                             {renderImageUpload('otherImage', currentLabels.otherImage)}
 
-                            {/* Section for Keywords and Dates */}
+                           
                             
                          
                                 <TextInputField

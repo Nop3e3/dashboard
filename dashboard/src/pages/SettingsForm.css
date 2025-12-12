@@ -1,0 +1,259 @@
+/* === Overall Layout === */
+.mainconj {
+  display: flex;
+  min-height: 100vh;
+  ;
+
+  font-family: lexend deca; /* keep your font */
+  background-color: #f5f6fa; /* same as your current page background */
+}
+.conty{
+  display: flex;
+  flex-direction: column;
+  width: 98%;
+
+}
+
+
+/* Main page content */
+.mainpage {
+  align-items: center;
+  justify-content: center;
+padding-bottom: 50px;
+  box-sizing: border-box;
+}
+
+/* Page title */
+.mainpage h1, .mainpage h2, .mainpage h3 {
+  margin: 0 0 20px 0;
+}
+
+/* Settings container and cards */
+.settings-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+/* Card style (keep your shadows, colors, border-radius) */
+.card {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 20px 25px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05); /* same shadow effect */
+}
+
+/* Card header */
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  justify-content: flex-start;
+  margin-bottom: 15px;
+}
+
+.card-header .icon {
+  width: 24px;
+  height: 24px;
+  color: #333;
+}
+
+/* Input groups */
+.input-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: 500;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.input-field {
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  outline: none;
+  transition: border 0.2s;
+}
+
+.input-field:focus {
+  border-color: #007bff; /* same focus color as button */
+}
+
+/* Password wrapper & toggle */
+.password-wrapper {
+  position: relative;
+}
+
+.password-toggle {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border: none;
+  background: none;
+  cursor: pointer;
+  color: #555;
+}
+
+/* Buttons (same styles you already used) */
+.button-primary {
+  background-color: #8A1E3E;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+.button-primary:hover {
+  background-color: #8A1E3E;
+}
+
+.button-outline {
+  padding: 8px 16px;
+  border-radius: 6px;
+  border: 1px solid #8A1E3E;
+  background: none;
+  color: #007bff;
+  cursor: pointer;
+}
+
+.button-outline:hover {
+  background-color: #8A1E3E;
+  color: #fff;
+}
+
+/* Divider */
+.divider {
+  height: 1px;
+  background-color: #eee;
+  margin: 20px 0;
+}
+
+/* Toggle switches */
+.toggle-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.toggle {
+  width: 50px;
+  height: 25px;
+  border-radius: 25px;
+  background-color: #ccc;
+  cursor: pointer;
+  position: relative;
+  transition: background-color 0.3s;
+}
+
+.toggle.active {
+  background-color: #8A1E3E;
+}
+
+.toggle-circle {
+  width: 21px;
+  height: 21px;
+  border-radius: 50%;
+  background-color: #fff;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s;
+}
+
+.toggle.active .toggle-circle {
+  left: 27px;
+}
+
+/* File upload */
+.file-upload {
+  margin-top: 10px;
+}
+
+.file-box {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px dashed #ccc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.file-preview {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.file-icon, .file-icon-upload {
+  width: 24px;
+  height: 24px;
+  color: #8A1E3E; /* keep icon color consistent */
+}
+
+.file-name {
+  font-size: 14px;
+  color: #333;
+}
+
+.file-description {
+  font-size: 14px;
+  color: #777;
+}
+
+/* Profile wrapper & avatar */
+.profile-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.profile-avatar {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #8A1E3E; /* same blue */
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  font-size: 18px;
+  overflow: hidden;
+}
+
+.avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Delete button */
+.delete-btn {
+  margin-top: 20px;
+  background-color: #8A1E3E;
+  color: #fff;
+  padding: 10px 18px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  background-color: #8A1E3E;
+}
+.h{
+margin: 0px;
+padding: 0;
+margin-bottom: 0px;
+}

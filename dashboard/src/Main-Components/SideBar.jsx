@@ -48,7 +48,8 @@ const Sidebar = () => {
       <MenuButton
         icon={SettingsIcon}
         title="Settings"
-     
+      to="/settings"
+        picked={location.pathname === '/settings'}
       
       />
     </nav>
