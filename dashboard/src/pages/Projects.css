@@ -91,7 +91,15 @@ button {
     font-family: lexend deca;
   transition: opacity 0.2s;
 }
-
+.projectat{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+width: 98%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
 button:hover {
   opacity: 0.8;
 }

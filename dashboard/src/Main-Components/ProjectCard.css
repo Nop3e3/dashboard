@@ -4,7 +4,7 @@
   display: flex;
   justify-content: center;
   padding: 40px;
-
+width: 100%;
   font-family: lexend deca;
 }
 
@@ -138,3 +138,7 @@ justify-content: space-between;
   margin-right: 6px;
   opacity: 0.7;
 }
+
+.card-wrapper-bg {
+ 
+width: 100%;}

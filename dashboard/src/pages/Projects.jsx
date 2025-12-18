@@ -17,7 +17,20 @@ import Img2 from '../Assets/img2.png';
 import Img3 from '../Assets/img3.png';
 import Img4 from '../Assets/img4.png';
 import Img5 from '../Assets/img5.png';
-const Projects = () => {
+
+const Projects = ({ portfolio }) => {
+
+  if (!portfolio) {
+    return (
+      <div className="mainconj">
+        <Sidebar />
+        <div className="mainpage page">
+          <Pagetitle title="Project Management" />
+          <p>Loading projects...</p>
+        </div>
+      </div>
+    );
+  }
     return ( 
     <div className='mainconj'>
 <Sidebar/>
@@ -86,102 +99,32 @@ const Projects = () => {
         </button>
       </div>
     </div>
-    <div>
-      <ProjectCard
-        // 1. Text Props
-        title="Verro: AI Art Mentor"
-        viewCount={12}
+    <div className='projectat' >
+   {portfolio.map((uxprojects) => (
+            <ProjectCard
+              key={uxprojects.id}
 
-        // 2. Image/Icon Props
-        coverImage={Img1}
-        menuIcon={menuDots}
-        viewIcon={eyeIcon}
+              title={uxprojects.title}
+              viewCount={uxprojects.view_count ?? 0}
 
-        // 3. Tag Props (Individual, no arrays)
-        tag1Label="UX Design"
+              coverImage={uxprojects.cover_image}
+              menuIcon={menuDots}
+              viewIcon={eyeIcon}
+
+              tag1Label={uxprojects.category1}
+         
         tag1Class="tag-design"    /* Matches the CSS class for yellow */
-        
-        tag2Label="UX Research"
-        tag2Class="tag-research"  /* Matches the CSS class for pink */
-      />
+
+        tag2Class="tag-research"
+
+              tag2Label={uxprojects.category2}
+             
+            />
+          ))}
 
 
-
-         <ProjectCard
-        // 1. Text Props
-        title="Sugar Pop: Pop Culture E-Magazine"
-        viewCount={12}
-
-        // 2. Image/Icon Props
-        coverImage={Img2}
-        menuIcon={menuDots}
-        viewIcon={eyeIcon}
-
-        // 3. Tag Props (Individual, no arrays)
-        tag1Label="UX Design"
-        tag1Class="tag-design"    /* Matches the CSS class for yellow */
-        
-        tag2Label="UX Research"
-        tag2Class="tag-research"  /* Matches the CSS class for pink */
-      />
-
-
-      
-         <ProjectCard
-        // 1. Text Props
-        title="Giza Zoo website"
-        viewCount={12}
-
-        // 2. Image/Icon Props
-        coverImage={Img3}
-        menuIcon={menuDots}
-        viewIcon={eyeIcon}
-
-        // 3. Tag Props (Individual, no arrays)
-        tag1Label="UX Design"
-        tag1Class="tag-design"    /* Matches the CSS class for yellow */
-        
-        tag2Label="UX Research"
-        tag2Class="tag-research"  /* Matches the CSS class for pink */
-      />
-
-
-
-          
-         <ProjectCard
-        // 1. Text Props
-        title="Heka: Smart TV"
-        viewCount={12}
-
-        // 2. Image/Icon Props
-        coverImage={Img4}
-        menuIcon={menuDots}
-        viewIcon={eyeIcon}
-
-        // 3. Tag Props (Individual, no arrays)
-        tag1Label="UX Design"
-        tag1Class="tag-design"    /* Matches the CSS class for yellow */
-        
-        tag2Label="UX Research"
-        tag2Class="tag-research"  /* Matches the CSS class for pink */
-      />
-          <ProjectCard
-        // 1. Text Props
-        title="East Sate : Real Estate Web"
-        viewCount={12}
-
-        // 2. Image/Icon Props
-        coverImage={Img5}
-        menuIcon={menuDots}
-        viewIcon={eyeIcon}
-
-        // 3. Tag Props (Individual, no arrays)
-        tag1Label="UX Design"
-        tag1Class="tag-design"    /* Matches the CSS class for yellow */
-        
-        tag2Label="UX Research"
-        tag2Class="tag-research"  /* Matches the CSS class for pink */
-      />
+       
+ 
     </div>
 
 
