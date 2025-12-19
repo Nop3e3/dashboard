@@ -1,51 +1,73 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { supabase } from "./Supabase";
+
 import Profilepage from "./pages/Profile";
 import Home from "./pages/Home";
-import Messages from "./pages/Message"
-import Projects from "./pages/Projects"
+import Messages from "./pages/Message";
+import Projects from "./pages/Projects";
 import Login from "./pages/Login";
 import ProjectMangement from "./pages/ProjectMangement";
 import SettingsForm from './pages/SettingsForm';
 import Error404 from './pages/Error404';
-import { supabase } from "./Supabase";
-import { useEffect, useState } from "react";
-
-
-
 
 const AppRoutes = () => {
-  const [portfolio, setPortfolio] = useState(null)
-useEffect(() => {
-  const fetchPortfolio = async () => {
-    const { data, error } = await supabase
-      .from('uxprojects')
-      .select('*')
+  const [portfolio, setPortfolio] = useState(null);
+  const [clientMessages, setClientMessages] = useState(null);
+  const [tasks, setTasks] = useState(null);
+  const [quickActions, setQuickActions] = useState(null);
 
-    if (error) {
-      console.error(error)
-    } else {
-      console.log('DATA:', data)
-      setPortfolio(data)
-    }
-  }
+  useEffect(() => {
+    // Fetch Projects
+    const fetchPortfolio = async () => {
+      const { data, error } = await supabase.from('uxprojects').select('*');
+      if (error) console.error('Error fetching projects:', error);
+      else setPortfolio(data);
+    };
 
-  fetchPortfolio()
-}, [])
+    // Fetch Messages
+    const fetchMessages = async () => {
+      const { data, error } = await supabase.from('clients messages').select('*');
+      if (error) console.error('Error fetching messages:', error);
+      else setClientMessages(data);
+    };
+
+    // Fetch Tasks
+    const fetchTasks = async () => {
+      const { data, error } = await supabase.from('tasks').select('*');
+      if (error) console.error('Error fetching tasks:', error);
+      else setTasks(data);
+    };
+
+    // Fetch Quick Actions
+    const fetchQuickActions = async () => {
+      const { data, error } = await supabase.from('quickactions').select('*');
+      if (error) console.error('Error fetching quick actions:', error);
+      else setQuickActions(data);
+    };
+
+    fetchPortfolio();
+    fetchMessages();
+    fetchTasks();
+    fetchQuickActions();
+  }, []);
 
   return (
     <BrowserRouter>
-
       <Routes>
-        
-        <Route path="/projectmanagement" element={<ProjectMangement />} />
-          <Route path="*" element={<Error404 />} />
-        <Route path="/settings" element={<SettingsForm />} />
-        <Route path="/home" element={<Home />} />
         <Route path="/" element={<Login />} />
-      <Route path="/projects" element={<Projects portfolio={portfolio} />} />          
- <Route path="/profile" element={<Profilepage />} />
- <Route path="/messages" element={<Messages/>} />
- 
+        <Route path="/home" element={<Home 
+          portfolio={portfolio} 
+          clients_messages={clientMessages} 
+          tasks={tasks} 
+          quickActions={quickActions} 
+        />} />
+        <Route path="/projects" element={<Projects portfolio={portfolio} />} />
+        <Route path="/messages" element={<Messages clients_messages={clientMessages} />} />
+        <Route path="/profile" element={<Profilepage />} />
+        <Route path="/projectmanagement" element={<ProjectMangement />} />
+        <Route path="/settings" element={<SettingsForm />} />
+        <Route path="*" element={<Error404 />} />
       </Routes>
     </BrowserRouter>
   );

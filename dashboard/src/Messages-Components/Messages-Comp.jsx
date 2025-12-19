@@ -63,8 +63,9 @@ const Messages = () => {
             title={clientMessage.title}
             message={clientMessage.message}
             status={clientMessage.status}
-            statusBg={statusStyle.bg}
-            statusColor={statusStyle.color}
+           
+             statusBg={clientMessage.status === "unread" ? "#EFD1D1" : "rgba(0, 182, 155, 0.22)"}
+                  statusColor="#062C2C"
           />
         );
       })}

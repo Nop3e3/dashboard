@@ -1,5 +1,5 @@
 /* Container */
-.project-card {
+.project-carddd {
   display: flex;
   align-items: center;
   background: white;
@@ -55,12 +55,18 @@ font-weight: 400;
 line-height: normal;
 
 }
+.brow{
+ flex-direction: row;
+justify-content: space-around;
+  display: flex;
+}
 
 /* Tags */
-.tags-container {
+.tags-containeer {
   display: flex;
+  flex-direction: row;
   gap: 8px;
-  flex-wrap: wrap;
+
 }
 
 .tag {

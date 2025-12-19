@@ -3,7 +3,7 @@ import './ProjectCard.css';
 
 const ProjectCard = (props) => {
   return (
-    <div className="project-card">
+    <div className="project-carddd">
      
       <div 
         className="rank-box" 
@@ -18,9 +18,11 @@ const ProjectCard = (props) => {
       </div>
 
       <div className="card-content">
-        <h3 className="card-titleee">{props.title}</h3>
-        
-        <div className="tags-container">
+      <div className='brow'>  <h3 className="card-titleee">{props.title}</h3>
+         <div className="card-score">
+        {props.score}
+      </div></div>
+        <div className="tags-containeer">
           {props.tag1Text && (
             <span className={`tag ${props.tag1Color}`}>
               {props.tag1Text}
@@ -36,9 +38,7 @@ const ProjectCard = (props) => {
       </div>
 
 
-      <div className="card-score">
-        {props.score}
-      </div>
+     
     </div>
   );
 };
