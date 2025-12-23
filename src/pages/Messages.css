@@ -1,0 +1,40 @@
+.mainconj{
+    background: linear-gradient(180deg, #FEF7F9 0%, #fadfe8 100% );
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row;
+
+
+
+}
+.mainpage{
+   
+    width: 98%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: 100%;
+}
+.Messages-row{
+display: flex;
+align-items: center;
+gap: 16px;
+width: 98%;
+padding-left: 1%;
+padding-right: 1%;
+align-self: stretch;
+
+}
+.downcomps{
+  width: 98%;
+  padding-bottom: 30px;
+padding-left: 1%;
+height: 100%;
+display: flex;
+  height: auto; /* optional */
+align-items: flex-start;
+gap: 13px;
+
+padding-right: 1%;
+}
