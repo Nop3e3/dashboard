@@ -25,7 +25,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
       <div className='mainpage'>
         <Pagetitle title="Dashboard" />
 
-        {/* Stats */}
+
         <div className='rowstats'>
         <Infographicsummary title="Visitors Today" value="40,689" change="+8.5%" changeLabel="Up from yesterday" icon={Visitorsicon} />
          <Infographicsummary title="Most Viewed Project" value="Sugar Pop..." change="+1,500 total view" icon={viewsicon} /> 
@@ -33,7 +33,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
          <Infographicsummary title="Total Visitors" value="98,420" change="+5.1%" changeLabel="This week" icon={totalvisitors} /> 
          </div> 
 
-        {/* Traffic & Actions */}
+      
         <div className='rowww22'>
           <div className='collycon'>
             <TrafficAnalytics data={[
@@ -47,7 +47,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
             ]} />
 
             <div className='rowww22'>
-              {/* Tasks */}
+      
               <div className='collycon2'>
                 <Titlemini title="Tasks" />
                 {tasks && tasks.map(task => {
@@ -63,7 +63,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
                 })}
               </div>
 
-              {/* Quick Actions */}
+         
               <div className='collycon2'>
                 <Titlemini title="Quick Actions" />
                 {quickActions && quickActions.map(action => (
@@ -73,9 +73,9 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
             </div>
           </div>
 
-          {/* Projects & Messages */}
+      
           <div className='collycon'>
-            {/* Top Projects */}
+     
             <div className='colly'>
               <Titlemini title="Top Projects" />
               {sortedProjects.slice(0, 3).map(project => (
@@ -97,7 +97,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
               <ArrowButton text="View all" icon={Arrow} />
             </div>
 
-            {/* Messages */}
+          
             <div className='colly'>
               <Titlemini title="Messages" />
               {clients_messages && clients_messages.slice(0, 3).map(msg => (
