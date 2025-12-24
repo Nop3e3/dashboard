@@ -1,246 +1,127 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import './ProjectMangement.css';
 
 import Pagetitle from '../Main-Components/PageTitle';
 import Sidebar from '../Main-Components/SideBar';
-import TextAreaInput from '../Profile-Components/TextArea'; // Rich Text Editor
-import TextInputField from '../Profile-Components/TextInputField'; // Standard Input/Textarea
+import TextAreaInput from '../Profile-Components/TextArea';
+import TextInputField from '../Profile-Components/TextInputField';
 import PinkButton from '../Main-Components/PinkButton';
 import PictureUpload from '../Profile-Components/PictureUpload';
-import ToggleSwitch from '../Profile-Components/LanguageToggle'; // MUST BE IMPORTED
 
-// Mock Select/Dropdown component (since you don't have a dedicated Select component)
-// We'll use a standard <select> element directly in the JSX for simplicity.
+const ProjectMangement = ({ projectfield, loading }) => {
+  const mainImageRef = useRef(null);
+  const mainCardImageRef = useRef(null);
+  const mobileImageRef = useRef(null);
+  const otherImageRef = useRef(null);
 
-const ArticleForm = () => {
-    // Refs and States
-    const fileInputRef = useRef(null); // Used for a generic file input trigger
-    
-    // Default language control remains, though not visible in the form image
-    const [language, setLanguage] = useState('en'); 
-    // State for all the form fields based on the image structure
-    const [formData, setFormData] = useState({
-        title: '',
-        category: 'select-category', // Mock state for the dropdown
-        brief: '', // Short description field
-        mainBody: '', 
-        mainImage: null,
-        mainCardImage: null,
-        mobileImage: null,
-        otherImage: null,
-        keywords: '', // Added based on form fields
-        date: '',     // Added based on form fields
-        time: '',     // Added based on form fields
-    });
-
-    // Handlers
-    
-    // ⬅️ HANDLER RE-ADDED: Toggle language state
-    const handleToggleLanguage = (isActive) => {
-        const newLanguage = isActive ? 'en' : 'ar';
-        setLanguage(newLanguage);
-    };
-
-    const handleChange = (field) => (e) => {
-        setFormData({ ...formData, [field]: e.target.value });
-    };
-
-    // Generic file change handler for multiple image uploads
-    const handleFileChange = (imageField) => (event) => {
-        const file = event.target.files[0];
-        if (file) {
-            setFormData(prev => ({ ...prev, [imageField]: file }));
-            console.log(`Selected file for ${imageField}:`, file.name);
-        }
-    };
-
-    // Labels for the fields shown in the image (assuming English only for new fields)
-    const labels = {
-        en: {
-            mainImage: 'Main Image', title: 'Project Title', category: 'Project Category', brief: 'Project Brief',
-            mainBody: 'Write your post...', mainCardImage: 'Main Card Image', mobileImage: 'Mobile Image',
-            otherImage: 'Other Image',
-            placeholder: {
-                title: 'Enter your poject title', brief: 'Enter a short summary', category: 'Select Category',
-            },
-        },
-        ar: {
-            mainImage: 'الصورة الرئيسية', title: 'عنوان المقال', category: 'تصنيف المقال', brief: 'موجز المقال',
-            mainBody: 'اكتب مقالك...', mainCardImage: 'صورة البطاقة الرئيسية', mobileImage: 'صورة الجوال',
-            otherImage: 'صورة أخرى',
-            placeholder: {
-                title: 'أدخل عنوان مقالك', brief: 'أدخل ملخصًا قصيرًا', category: 'اختر التصنيف',
-            },
-        },
-    };
-    
-    const renderImageUpload = (field, label) => (
-        <div key={field} className='image-upload-section' style={{ marginBottom: '20px' }}>
-             <label className="input-title">{label}</label>
-            <PictureUpload 
-                onClick={() => document.getElementById(`file-input-${field}`).click()} 
-                fileName={formData[field] ? formData[field].name : null}
-            />
-            <input
-                id={`file-input-${field}`}
-                type="file"
-                ref={fileInputRef} 
-                onChange={handleFileChange(field)}
-                accept="image/*"
-                style={{ display: 'none' }}
-            />
-        </div>
-    );
-
-    const currentLabels = labels[language];
-
+  // Show loading state if data is still being fetched
+  if (loading || !projectfield || projectfield.length === 0) {
     return (
-        <div className='mainconj'>
-            <Sidebar />
-            <div className='mainpage1'>
-             <div  className='ttlcon'>   <Pagetitle title="Projetc Mangement" /> 
-</div>
-                <div className='theactualcontent'>
-                    <div className='ProfileContent'>
-                        
-                    
-                        <div style={{ 
-                            display: 'flex', 
-                            justifyContent: 'flex-start', 
-                            alignItems: 'center', 
-                            marginBottom: '30px' 
-                        }}>
-                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                <span style={{ marginRight: '10px', fontSize: '14px', color: '#a0a0a0' }}>
-                                    {language === 'en' ? 'EN' : 'AR'}
-                                </span>
-                                <ToggleSwitch 
-                                    initialActive={language === 'en'} 
-                                    onToggle={handleToggleLanguage} 
-                                />
-                            </div>
-                        </div>
-                    
-                        
-                        
-                       
-                        {renderImageUpload('mainImage', currentLabels.mainImage)}
+      <div className="mainconj">
+        <Sidebar />
+        <div className="mainpage page">
+          <Pagetitle title="Project Management" />
+          <p>Loading projects...</p>
+        </div>
+      </div>
+    );
+  }
 
-                        <div className="form-fields">
-                         
-                            <TextInputField
-                                label={`* ${currentLabels.title}`}
-                                placeholder={currentLabels.placeholder.title}
-                                value={formData.title}
-                                onChange={handleChange('title')}
-                                fullWidth={true} 
-                            />
+  const renderImageUpload = (label, ref) => (
+    <div className="image-upload-section">
+      <label className="input-title">{label}</label>
+      <PictureUpload onClick={() => ref.current.click()} fileName={null} />
+      <input type="file" ref={ref} accept="image/*" hidden />
+    </div>
+  );
 
-               
-                            <div className='text-input-field-container full-width'>
-                                <label className="input-label">* {currentLabels.category}</label>
-                                <div className="input-wrapper">
-                                    <select
-                                        className="input-element"
-                                        value={formData.category}
-                                        onChange={handleChange('category')}
-                                        style={{ height: '40px', padding: '0 10px' }} 
-                                    >
-                                        <option value="select-category" disabled>{currentLabels.placeholder.category}</option>
-                                        <option value="tech">Technology</option>
-                                        <option value="design">Design</option>
-                                        <option value="business">Business</option>
-                                    </select>
-                                </div>
-                            </div>
-                            
-                            {/* 4. Post Brief (Simple Text Input) */}
-                            <TextAreaInput 
-                                label={`* ${currentLabels.brief}`}
-                                placeholder={currentLabels.placeholder.brief}
-                                value={formData.brief}
-                                onChange={handleChange('brief')}
-                                fullWidth={true}
-                            />
+  return (
+    <div className="mainconj">
+      <Sidebar />
+      <div className="mainpage1">
+        <div className="ttlcon">
+          <Pagetitle title="Project Management" />
+        </div>
+        <div className="theactualcontent">
+          <div className="ProfileContent">
+            {renderImageUpload('Main Image', mainImageRef)}
 
-                 
-                            <TextAreaInput 
-                             label={`* ${currentLabels.mainBody}`}
-                                placeholder="Start typing your article here..."
-                                value={formData.mainBody}
-                                onChange={handleChange('mainBody')}
-                            />
-                            
-                            <hr style={{margin: '30px 0', border: 'none', borderTop: '1px solid #eee'}}/>
-                            
-                      
-                            {renderImageUpload('mainCardImage', currentLabels.mainCardImage)}
-                            
-                      
-                            {renderImageUpload('mobileImage', currentLabels.mobileImage)}
-                            
-                          
-                            {renderImageUpload('otherImage', currentLabels.otherImage)}
+            <div className="form-fields">
+                
+                   {projectfield && projectfield.slice(0, 8).map(field => (
+             
+                <TextInputField
+                
+                  label={field.label}
+                  placeholder={field.placeholder}
+                  fullWidth
+                />
+              ))}
 
-                           
-                            
-                         
-                                <TextInputField
-                                  label="Keywords"
-                                    placeholder="Enter keywords"
-                                    value={formData.keywords} 
-                                    onChange={handleChange('keywords')}
-                                    fullWidth={true}
-                                />
-                          
-                                <TextInputField
-                                  label="Meta Description"
-                                    placeholder="Enter E.g., Explore essential UI/UX design tips to create ..."
-                                    value={formData.keywords} 
-                                    onChange={handleChange('keywords')}
-                                    fullWidth={true}
-                                />
+          
 
-                            {/* 9. Dates (Mock up of the final section) */}
-                            <div className='date-fields' style={{ display: 'flex', gap: '20px', marginTop: '20px'}}>
-                                <TextInputField
-                                    label="Slug Name"
-                                    placeholder="E.g., ui-ux-design-tips"
-                                    value={formData.date}
-                                    onChange={handleChange('date')}
-                                    halfWidth={true}
-                                />
-                                <TextInputField
-                                    label="Title Tag"
-                                    placeholder="E.g., Top UI/UX Design Tips for Engaging Digital Experiences"
-                                    value={formData.time}
-                                    onChange={handleChange('time')}
-                                    halfWidth={true}
-                                />
-                            </div>
+           
+              <hr className="divider" />
 
-                            {/* Buttons at the bottom right */}
-                            <div className='collu'>
-                                <PinkButton content="Publish" />
-                                <button type="button" className='draft-button' style={{
+              {renderImageUpload('Main Card Image', mainCardImageRef)}
+              {renderImageUpload('Mobile Image', mobileImageRef)}
+              {renderImageUpload('Other Image', otherImageRef)}
+
+              <TextInputField
+                label="Keywords"
+                placeholder="Enter keywords"
+                fullWidth
+              />
+
+              <TextInputField
+                label="Meta Description"
+                placeholder="E.g., Explore essential UI/UX design tips..."
+                fullWidth
+              />
+
+              <div className="date-fields">
+                     
+                
+                   {projectfield && projectfield.slice(8, 12).map(field => (
+             
+                <TextInputField
+                
+                  label={field.label}
+                  placeholder={field.placeholder}
+                  fullWidth
+                />
+              ))}
+              
+              </div>
+
+              <div className="collu">
+                <PinkButton content="Publish" />
+                                            
+                 <button type="button" className='draft-button' style={{
                                     backgroundColor: '#fff', 
-                                
+                                display:'flex',
+                                alignItems:'center',
+                                justifyItems:'center',
+                                justifyContent:'center',
                                     border: '2px solid #8A1E3E',
                                     padding: '10px 20px',
                                     borderRadius: '8px',
                                     cursor: 'pointer',
                                     color:'#8A1E3E',
                                      height: '48px',
-fontFamily:'Lexend Deca'
+                                     fontFamily:'Lexend Deca'
+
 
                                 }}>Save as Draft</button>
                             </div>
-                        </div>
-                    </div>
-                </div>
+
+              </div>
             </div>
+          </div>
         </div>
-    );
+      </div>
+    
+  );
 };
 
-export default ArticleForm;
+export default ProjectMangement;
