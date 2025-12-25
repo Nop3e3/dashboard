@@ -2,21 +2,21 @@ import React from 'react';
 import './Home.css';
 import Arrow from '../Assets/arrowww.svg'; 
 import Pagetitle from '../Main-Components/PageTitle';
- import Sidebar from '../Main-Components/SideBar';
-  import Infographicsummary from '../Home-Components/StatsCard';
-   import ProjectCard from '../Home-Components/ProjectCard';
-    import Visitorsicon from '../Assets/visitors.svg'; 
-    import viewsicon from '../Assets/viewers.svg';
-     import newmessagesicon from '../Assets/new messages.svg';
-      import totalvisitors from '../Assets/total visitors.svg';
-       import ArrowButton from '../Home-Components/ArrowButton' ;
-       import TrafficAnalytics from "../Home-Components/TrafficAnalytics";
-        import TaskItem from '../Home-Components/TaskItem'; 
-        import Titlemini from '../Home-Components/Titlemini' ;
-        import QuickActions from '../Home-Components/QuickActions'; 
-        import MessageCard from'../Messages-Components/MessageCard';
-const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
+import Sidebar from '../Main-Components/SideBar';
+import Infographicsummary from '../Home-Components/StatsCard';
+import ProjectCard from '../Home-Components/ProjectCard';
+import Visitorsicon from '../Assets/visitors.svg'; 
+import viewsicon from '../Assets/viewers.svg';
+import newmessagesicon from '../Assets/new messages.svg';
+import totalvisitors from '../Assets/total visitors.svg';
+import ArrowButton from '../Home-Components/ArrowButton';
+import TrafficAnalytics from "../Home-Components/TrafficAnalytics";
+import TaskItem from '../Home-Components/TaskItem'; 
+import Titlemini from '../Home-Components/Titlemini';
+import QuickActions from '../Home-Components/QuickActions'; 
+import MessageCard from '../Messages-Components/MessageCard';
 
+const Home = ({ portfolio, clientMessages, quickActions, tasks }) => {
   const sortedProjects = portfolio ? [...portfolio].sort((a, b) => a.Rank - b.Rank) : [];
 
   return (
@@ -25,15 +25,13 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
       <div className='mainpage'>
         <Pagetitle title="Dashboard" />
 
-
         <div className='rowstats'>
-        <Infographicsummary title="Visitors Today" value="40,689" change="+8.5%" changeLabel="Up from yesterday" icon={Visitorsicon} />
-         <Infographicsummary title="Most Viewed Project" value="Sugar Pop..." change="+1,500 total view" icon={viewsicon} /> 
-         <Infographicsummary title="New Messages" value="43" redChange="-8.5%" redLabel="Compared to yesterday" icon={newmessagesicon} /> 
-         <Infographicsummary title="Total Visitors" value="98,420" change="+5.1%" changeLabel="This week" icon={totalvisitors} /> 
-         </div> 
+          <Infographicsummary title="Visitors Today" value="40,689" change="+8.5%" changeLabel="Up from yesterday" icon={Visitorsicon} />
+          <Infographicsummary title="Most Viewed Project" value="Sugar Pop..." change="+1,500 total view" icon={viewsicon} /> 
+          <Infographicsummary title="New Messages" value="43" redChange="-8.5%" redLabel="Compared to yesterday" icon={newmessagesicon} /> 
+          <Infographicsummary title="Total Visitors" value="98,420" change="+5.1%" changeLabel="This week" icon={totalvisitors} /> 
+        </div> 
 
-      
         <div className='rowww22'>
           <div className='collycon'>
             <TrafficAnalytics data={[
@@ -47,7 +45,6 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
             ]} />
 
             <div className='rowww22'>
-      
               <div className='collycon2'>
                 <Titlemini title="Tasks" />
                 {tasks && tasks.map(task => {
@@ -63,7 +60,6 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
                 })}
               </div>
 
-         
               <div className='collycon2'>
                 <Titlemini title="Quick Actions" />
                 {quickActions && quickActions.map(action => (
@@ -73,9 +69,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
             </div>
           </div>
 
-      
           <div className='collycon'>
-     
             <div className='colly'>
               <Titlemini title="Top Projects" />
               {sortedProjects.slice(0, 3).map(project => (
@@ -84,7 +78,7 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
                   title={project.title}
                   viewCount={project.view_count ?? 0}
                   coverImage={project.cover_image}
-                  rank={project.Rank}
+                  rank={project.rank}
                   tag1Text={project.category1}
                   tag1Color="yellow"
                   rankBgColor={project.bg_color}
@@ -97,10 +91,9 @@ const Home = ({ portfolio, clients_messages, quickActions, tasks }) => {
               <ArrowButton text="View all" icon={Arrow} />
             </div>
 
-          
             <div className='colly'>
               <Titlemini title="Messages" />
-              {clients_messages && clients_messages.slice(0, 3).map(msg => (
+              {clientMessages && clientMessages.slice(0, 3).map(msg => (
                 <MessageCard
                   key={msg.id}
                   image={msg.Senders_pfp}

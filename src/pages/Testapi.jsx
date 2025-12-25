@@ -1,127 +1,110 @@
-import React, { useRef } from 'react';
-import './ProjectMangement.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { supabase } from "./Supabase";
 
-import Pagetitle from '../Main-Components/PageTitle';
-import Sidebar from '../Main-Components/SideBar';
-import TextAreaInput from '../Profile-Components/TextArea';
-import TextInputField from '../Profile-Components/TextInputField';
-import PinkButton from '../Main-Components/PinkButton';
-import PictureUpload from '../Profile-Components/PictureUpload';
+import Profilepage from "./pages/Profile";
+import Home from "./pages/Home";
+import Messages from "./pages/Message";
+import Projects from "./pages/Projects";
+import Login from "./pages/Login";
+import ProjectMangement from "./pages/ProjectMangement";
+import SettingsForm from './pages/SettingsForm';
+import Error404 from './pages/Error404';
 
-const ProjectMangement = ({ projectfield, loading }) => {
-  const mainImageRef = useRef(null);
-  const mainCardImageRef = useRef(null);
-  const mobileImageRef = useRef(null);
-  const otherImageRef = useRef(null);
+const AppRoutes = () => {
+  // State
+  const [portfolio, setPortfolio] = useState([]);
+  const [projectfield, setProjectfield] = useState([]);
+  const [profile, setProfile] = useState([]);
+  const [clientMessages, setClientMessages] = useState([]);
+  const [tasks, setTasks] = useState([]);
+  const [quickActions, setQuickActions] = useState([]);
+  const [contactAndGit, setContactAndGit] = useState([]);
 
-  // Show loading state if data is still being fetched
-  if (loading || !projectfield || projectfield.length === 0) {
-    return (
-      <div className="mainconj">
-        <Sidebar />
-        <div className="mainpage page">
-          <Pagetitle title="Project Management" />
-          <p>Loading projects...</p>
-        </div>
-      </div>
-    );
-  }
+  // Loading state
+  const [loading, setLoading] = useState(true);
 
-  const renderImageUpload = (label, ref) => (
-    <div className="image-upload-section">
-      <label className="input-title">{label}</label>
-      <PictureUpload onClick={() => ref.current.click()} fileName={null} />
-      <input type="file" ref={ref} accept="image/*" hidden />
-    </div>
-  );
+  useEffect(() => {
+    const fetchAll = async () => {
+      try {
+        const [
+          { data: portfolioData, error: portfolioError },
+          { data: projectfieldData, error: projectfieldError },
+          { data: profileData, error: profileError },
+          { data: messagesData, error: messagesError },
+          { data: tasksData, error: tasksError },
+          { data: quickActionsData, error: quickActionsError },
+          { data: contactAndGitData, error: contactAndGitError },
+        ] = await Promise.all([
+          supabase.from("uxprojects").select("*"),          // ✅ check table name in Supabase
+          supabase.from("Projectfields").select("*"),       // ✅ fixed: exact table name
+          supabase.from("Profile").select("*"),             // ✅ match your actual table name
+          supabase.from("ClientsMessages").select("*"),     // ✅ match your actual table name
+          supabase.from("Tasks").select("*"),               // ✅ match your actual table name
+          supabase.from("Quickactions").select("*"),        // ✅ match your actual table name
+          supabase.from("Contactandgit").select("*"),       // ✅ match your actual table name
+        ]);
+
+        if (portfolioError) console.error("Error fetching uxprojects:", portfolioError);
+        if (projectfieldError) console.error("Error fetching Projectfields:", projectfieldError);
+        if (profileError) console.error("Error fetching Profile:", profileError);
+        if (messagesError) console.error("Error fetching ClientsMessages:", messagesError);
+        if (tasksError) console.error("Error fetching Tasks:", tasksError);
+        if (quickActionsError) console.error("Error fetching Quickactions:", quickActionsError);
+        if (contactAndGitError) console.error("Error fetching Contactandgit:", contactAndGitError);
+
+        setPortfolio(portfolioData || []);
+        setProjectfield(projectfieldData || []);
+        setProfile(profileData || []);
+        setClientMessages(messagesData || []);
+        setTasks(tasksData || []);
+        setQuickActions(quickActionsData || []);
+        setContactAndGit(contactAndGitData || []);
+      } catch (err) {
+        console.error("Unexpected error fetching data:", err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAll();
+  }, []);
 
   return (
-    <div className="mainconj">
-      <Sidebar />
-      <div className="mainpage1">
-        <div className="ttlcon">
-          <Pagetitle title="Project Management" />
-        </div>
-        <div className="theactualcontent">
-          <div className="ProfileContent">
-            {renderImageUpload('Main Image', mainImageRef)}
-
-            <div className="form-fields">
-                
-                   {projectfield && projectfield.slice(0, 8).map(field => (
-             
-                <TextInputField
-                
-                  label={field.label}
-                  placeholder={field.placeholder}
-                  fullWidth
-                />
-              ))}
-
-          
-
-           
-              <hr className="divider" />
-
-              {renderImageUpload('Main Card Image', mainCardImageRef)}
-              {renderImageUpload('Mobile Image', mobileImageRef)}
-              {renderImageUpload('Other Image', otherImageRef)}
-
-              <TextInputField
-                label="Keywords"
-                placeholder="Enter keywords"
-                fullWidth
-              />
-
-              <TextInputField
-                label="Meta Description"
-                placeholder="E.g., Explore essential UI/UX design tips..."
-                fullWidth
-              />
-
-              <div className="date-fields">
-                     
-                
-                   {projectfield && projectfield.slice(8, 12).map(field => (
-             
-                <TextInputField
-                
-                  label={field.label}
-                  placeholder={field.placeholder}
-                  fullWidth
-                />
-              ))}
-              
-              </div>
-
-              <div className="collu">
-                <PinkButton content="Publish" />
-                                            
-                 <button type="button" className='draft-button' style={{
-                                    backgroundColor: '#fff', 
-                                display:'flex',
-                                alignItems:'center',
-                                justifyItems:'center',
-                                justifyContent:'center',
-                                    border: '2px solid #8A1E3E',
-                                    padding: '10px 20px',
-                                    borderRadius: '8px',
-                                    cursor: 'pointer',
-                                    color:'#8A1E3E',
-                                     height: '48px',
-                                     fontFamily:'Lexend Deca'
-
-
-                                }}>Save as Draft</button>
-                            </div>
-
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Login />} />
+        <Route
+          path="/home"
+          element={
+            <Home
+              portfolio={portfolio}
+              clients_messages={clientMessages}
+              tasks={tasks}
+              quickActions={quickActions}
+            />
+          }
+        />
+        <Route path="/projects" element={<Projects portfolio={portfolio} />} />
+        <Route path="/messages" element={<Messages clients_messages={clientMessages} />} />
+    <Route
+  path="/profile"
+  element={
+    <Profilepage
+      profile={profile}
+      contactAndGit={contactAndGit}
+    />
+  }
+/>
+        <Route
+          path="/projectmanagement"
+          element={<ProjectMangement projectfield={projectfield} loading={loading}  portfolio={portfolio}/>}
+        />
+        <Route path="/settings" element={<SettingsForm />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
-export default ProjectMangement;
+export default AppRoutes;

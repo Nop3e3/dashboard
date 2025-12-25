@@ -12,7 +12,7 @@ import SettingsForm from './pages/SettingsForm';
 import Error404 from './pages/Error404';
 
 const AppRoutes = () => {
-  // State
+  // Initialize state
   const [portfolio, setPortfolio] = useState([]);
   const [projectfield, setProjectfield] = useState([]);
   const [profile, setProfile] = useState([]);
@@ -21,53 +21,65 @@ const AppRoutes = () => {
   const [quickActions, setQuickActions] = useState([]);
   const [contactAndGit, setContactAndGit] = useState([]);
 
-  // Loading state
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
-    const fetchAll = async () => {
-      try {
-        const [
-          { data: portfolioData, error: portfolioError },
-          { data: projectfieldData, error: projectfieldError },
-          { data: profileData, error: profileError },
-          { data: messagesData, error: messagesError },
-          { data: tasksData, error: tasksError },
-          { data: quickActionsData, error: quickActionsError },
-          { data: contactAndGitData, error: contactAndGitError },
-        ] = await Promise.all([
-          supabase.from("uxprojects").select("*"),          // ✅ check table name in Supabase
-          supabase.from("Projectfields").select("*"),       // ✅ fixed: exact table name
-          supabase.from("Profile").select("*"),             // ✅ match your actual table name
-          supabase.from("ClientsMessages").select("*"),     // ✅ match your actual table name
-          supabase.from("Tasks").select("*"),               // ✅ match your actual table name
-          supabase.from("Quickactions").select("*"),        // ✅ match your actual table name
-          supabase.from("Contactandgit").select("*"),       // ✅ match your actual table name
-        ]);
-
-        if (portfolioError) console.error("Error fetching uxprojects:", portfolioError);
-        if (projectfieldError) console.error("Error fetching Projectfields:", projectfieldError);
-        if (profileError) console.error("Error fetching Profile:", profileError);
-        if (messagesError) console.error("Error fetching ClientsMessages:", messagesError);
-        if (tasksError) console.error("Error fetching Tasks:", tasksError);
-        if (quickActionsError) console.error("Error fetching Quickactions:", quickActionsError);
-        if (contactAndGitError) console.error("Error fetching Contactandgit:", contactAndGitError);
-
-        setPortfolio(portfolioData || []);
-        setProjectfield(projectfieldData || []);
-        setProfile(profileData || []);
-        setClientMessages(messagesData || []);
-        setTasks(tasksData || []);
-        setQuickActions(quickActionsData || []);
-        setContactAndGit(contactAndGitData || []);
-      } catch (err) {
-        console.error("Unexpected error fetching data:", err);
-      } finally {
-        setLoading(false);
-      }
+    // Fetch projects
+    const fetchPortfolio = async () => {
+      const { data, error } = await supabase.from("uxprojects").select("*");
+      if (error) console.error("Error fetching projects:", error);
+      else setPortfolio(data || []);
     };
 
-    fetchAll();
+    // Fetch project fields
+ const fetchProjectfield = async () => {
+  const { data, error } = await supabase.from("Projectfields").select("*"); // <-- exact table name in Supabase
+  if (error) console.error("Error fetching project fields:", error);
+  else setProjectfield(data || []);
+};
+
+
+    // Fetch profile
+   const fetchProfile = async () => {
+  const { data, error } = await supabase.from("Profile").select("*"); // <-- exact table name in Supabase
+  if (error) console.error("Error fetching profile:", error);
+  else setProfile(data || []);
+};
+
+    // Fetch messages
+    const fetchMessages = async () => {
+      const { data, error } = await supabase.from("clients_messages").select("*"); // ✅ match table name
+      if (error) console.error("Error fetching messages:", error);
+      else setClientMessages(data || []);
+    };
+
+    // Fetch tasks
+    const fetchTasks = async () => {
+      const { data, error } = await supabase.from("tasks").select("*");
+      if (error) console.error("Error fetching tasks:", error);
+      else setTasks(data || []);
+    };
+
+    // Fetch quick actions
+    const fetchQuickActions = async () => {
+      const { data, error } = await supabase.from("quick_actions").select("*");
+      if (error) console.error("Error fetching quick actions:", error);
+      else setQuickActions(data || []);
+    };
+
+    // Fetch contact & Git info
+    const fetchContactAndGit = async () => {
+      const { data, error } = await supabase.from("Contactandgit").select("*");
+      if (error) console.error("Error fetching contact/git:", error);
+      else setContactAndGit(data || []);
+    };
+
+    // Call all fetches
+    fetchProjectfield();
+    fetchProfile();
+    fetchPortfolio();
+    fetchMessages();
+    fetchTasks();
+    fetchQuickActions();
+    fetchContactAndGit();
   }, []);
 
   return (
@@ -79,21 +91,21 @@ const AppRoutes = () => {
           element={
             <Home
               portfolio={portfolio}
-              clients_messages={clientMessages}
+              clientMessages={clientMessages}
               tasks={tasks}
               quickActions={quickActions}
             />
           }
         />
         <Route path="/projects" element={<Projects portfolio={portfolio} />} />
-        <Route path="/messages" element={<Messages clients_messages={clientMessages} />} />
+        <Route path="/messages" element={<Messages clientMessages={clientMessages} />} />
         <Route
           path="/profile"
           element={<Profilepage profile={profile} contactAndGit={contactAndGit} />}
         />
         <Route
           path="/projectmanagement"
-          element={<ProjectMangement projectfield={projectfield} loading={loading} />}
+          element={<ProjectMangement projectfield={projectfield} />}
         />
         <Route path="/settings" element={<SettingsForm />} />
         <Route path="*" element={<Error404 />} />

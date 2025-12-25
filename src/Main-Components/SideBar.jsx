@@ -18,7 +18,8 @@ const Sidebar = () => {
 
   return (
     <nav className='nav'>
-      <AddButton icon={PlusIcon} title="Add Project" />
+      <AddButton icon={PlusIcon} title="Add Project" 
+       />
 
       <MenuButton
         icon={DashboardIcon}
